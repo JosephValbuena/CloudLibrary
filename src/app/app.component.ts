@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cloudLibrary';
+      
+  comprobar: string | null;
+  ngOnInit() {
+    
+  }
+
+  constructor(){
+    this.comprobar = localStorage.getItem("idUser");
+  }
 }

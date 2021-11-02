@@ -1,0 +1,33 @@
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <div class="sb-sidenav-menu-heading">Home</div>
+                <a class="btn btn-link nav-link" [routerLink]="['/home']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                    Todos los libros
+                </a>
+                <div class="sb-sidenav-menu-heading">ESPACIO PERSONAL</div>
+                <a class="btn btn-link nav-link" (click)="goToProfile()">
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                    Mi perfil
+                </a>
+
+                <a class="btn btn-link nav-link" (click)="goToBooks()">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                    Mis Libros
+                </a>
+
+                <div class="sb-sidenav-menu-heading">SOCIAL</div>
+                <a class="btn btn-link nav-link" [routerLink]="['/comments']">
+                    <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>
+                    Comentarios
+                </a>
+            </div>
+        </div>
+        <div class="sb-sidenav-footer">
+            <div class="small">Usuario actual:</div>
+            {{name}}
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,16 @@
+.profile {
+    display: flex;
+    justify-content: center;
+}
+
+.imgProfile {
+    margin-left: 25px;
+}
+
+.email {
+    margin-left: 40px;
+}
+
+.formEdit {
+    margin: 0 10%;
+}
