@@ -11,6 +11,7 @@ import { GeneralService } from 'src/app/services/general.service';
 export class MybooksComponent implements OnInit {
 
   books: Book[] = [];
+  validate: boolean = true;
   constructor(private activatedRoute:ActivatedRoute, private service:GeneralService) { }
 
   ngOnInit(): void {
@@ -21,7 +22,12 @@ export class MybooksComponent implements OnInit {
           for(let i = 0; i < purchases.items.length; i++) {
             this.service.getBook(purchases.items[i].idbook).subscribe((book:any) => {
               this.books.push(book.items[0]);
+              this.validate = false;
             });
+          }
+
+          if(this.books.length > 0){
+            this.validate = false;
           }
         });
       }

@@ -11,6 +11,8 @@ export class SidebarComponent implements OnInit {
   user: string | null;
   transformed:any;
   name: string | null = "";
+  auth:boolean = false;
+  token: string | null = "";
     
   constructor(private router: Router) {
     this.user = localStorage.getItem("idUser");
@@ -22,6 +24,12 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.token = localStorage.getItem('token');
+
+    if(this.token){
+      this.auth = true;
+    }
+
   }
 
   goToProfile(){

@@ -1,0 +1,11 @@
+/* .comments {
+    margin: 0 10%;
+} */
+
+.addcomment {
+    margin: 0 5%;
+    padding: 15px;
+    background: rgb(235, 235, 235);
+    border-radius: 10px;
+    border: 0.5px solid rgb(211, 211, 211);
+}

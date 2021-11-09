@@ -12,11 +12,13 @@ import { NavbarComponent } from './temp/navbar/navbar.component';
 import { AuthServiceService } from './services/auth-service.service';
 import { appRouting } from './app.routes';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './auth/register/register.component';
 import { GeneralService } from './services/general.service';
 import { BookComponent } from './books/book/book.component';
 import { MybooksComponent } from './profile/mybooks/mybooks.component';
+import {HttpConfigInterceptor} from './interceptor/httpconfig.interceptor'
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,16 @@ import { MybooksComponent } from './profile/mybooks/mybooks.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthServiceService, GeneralService],
+  providers: [
+    AuthServiceService, 
+    GeneralService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true
+    },
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

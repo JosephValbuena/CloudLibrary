@@ -1,0 +1,12 @@
+body {
+    background-image: url(../../../assets/img/bgAuth2.jpg);
+}
+
+.loginSide {
+    opacity: 90%;
+}
+
+.formulario {
+    width: 80%;
+    padding: 10px
+}

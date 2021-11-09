@@ -1,0 +1,11 @@
+.btn-login:hover {
+    border: 1px solid #fff;
+    background: #fff;
+    color: black;
+}
+
+.btn-register:hover {
+    border: 1px solid #fff;
+    background: #fff;
+    color: black;
+}

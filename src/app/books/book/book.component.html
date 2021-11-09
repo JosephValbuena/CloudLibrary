@@ -4,36 +4,59 @@
         <app-sidebar></app-sidebar>
         <div id="layoutSidenav_content">
             <main>
-                <div class="row">
-                    <div class="col-10 container-fluid px-4">
-                        <h1 class="mt-4">{{book.name}}</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Libro Electrónico disponible en nuestra tienda</li>
-                        </ol>
-                    </div>
-                    <div class="col-2">
-                        <button (click)="navigateBack()" class="btn btn-dark mt-4">regresar a ver libros</button>
-                    </div>
-                </div>
 
-                <div class="card cardLibro mb-3" style="max-width: 700px;">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="../../../assets/img/{{book.image}}.jpg" class="img-fluid rounded-start" alt="...">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <div class="col-10">
+                            <h1 class="mt-4">{{book.name}}</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Libro Electrónico disponible en nuestra tienda</li>
+                            </ol>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h3 class="card-title">{{book.name}}</h3>
-                                <p class="card-text">{{book.description}}</p>
-                                <p class="card-text"><small class="text-muted">Costo del libro: {{book.cost}}</small></p>
-                                <div class="d-grid gap-2">
-                                    <button (click)="purchase()" class="btn btn-primary">Comprar</button>
+
+                        <div class="col-2">
+                            <button (click)="navigateBack()" class="btn btn-dark mt-4">regresar a ver libros</button>
+                        </div>
+                    </div>
+                    <div class="card cardLibro mb-3" style="max-width: 700px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="../../../assets/img/{{book.image}}.jpg" class="img-fluid rounded-start" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{book.name}}</h3>
+                                    <p class="card-text">{{book.description}}</p>
+                                    <p class="card-text"><small class="text-muted">Costo del libro: {{book.cost}}</small></p>
+                                    <div class="d-grid gap-2">
+                                        <button (click)="purchase()" class="btn btn-primary">Comprar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <h2 class="text-center">Libros relacionados con el tema</h2>
+                    <br>
+                    <div class="row row-cols-1 row-cols-md-5 ms-2 g-3">
+                        <div class="col" *ngFor="let book of books;">
+                            <div class="card h-100 ">
+                                <img src="../../../assets/img/{{book.image}}.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{book.name}}</h5>
+                                    <p><strong>{{book.author}}</strong></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Año de publicación: {{book.year}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <br><br>
+                </div>
             </main>
             <app-footer></app-footer>
         </div>

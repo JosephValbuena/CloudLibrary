@@ -1,1 +1,67 @@
-<p>comments works!</p>
+<body class="sb-nav-fixed">
+    <app-navbar></app-navbar>
+    <div id="layoutSidenav">
+        <app-sidebar></app-sidebar>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <div class=" d-flex justify-content-between align-items-center">
+                        <div class="name">
+                            <h1 class="mt-4">Comentarios de la comunidad</h1>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item active">Aquí se encuentran los comentarios que ha hecho la comunidad acerca de la plataforma y los libros</li>
+                            </ol>
+                        </div>
+                        <div class="add">
+                            <button (click)="openForm=true" class="btn btn-dark">Agregar Comentario</button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="addcomment" *ngIf="openForm">
+                        <form>
+                            <div class="mb-3">
+                                <label for="tittle" class="form-label">Título del comentario</label>
+                                <input type="text" class="form-control" id="tittle" name="tittle" [(ngModel)]="form.tittle">
+                            </div>
+                            <div class="mb-3">
+                                <label for="comment" class="form-label">Comentario</label>
+                                <textarea class="form-control" id="comment" rows="3" name="comment" [(ngModel)]="form.comentario"></textarea>
+                            </div>
+                            <button type="button" (click)="addComment()" class="btn btn-dark">Agregar Comentario</button>
+                        </form>
+                    </div>
+
+                    <hr *ngIf="openForm">
+
+                    <div class="comments">
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            <div class="col" *ngFor="let comentario of comentarios">
+                                <div class="card border-dark mt-3">
+                                    <h5 class="card-header text-center">{{comentario.nombreusuario}}</h5>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{comentario.tittle}}</h5>
+                                        <p class="card-text">{{comentario.comentario}}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <p class="card-text">{{comentario.datecomment}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </main>
+            <app-footer></app-footer>
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script> -->
+</body>

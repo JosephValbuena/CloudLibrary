@@ -9,26 +9,34 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Aquí están todos los libros que has comprado</li>
                     </ol>
-                </div>
-                <div class="row row-cols-1 row-cols-md-4 ms-2 g-3">
-                    <div class="col" *ngFor="let book of books;">
-                        <div class="card h-100">
-                            <img src="../../../assets/img/{{book.image}}.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{book.name}}</h5>
-                                <p><strong>{{book.author}}</strong></p>
-                                <p class="card-text">{{book.description}}</p>
-                                <div class="d-grid gap-2">
-                                    <button (click)="readBook()" class="btn btn-dark">Leer Libro</button>
+
+                    <div class="noContent d-flex justify-content-center align-items-center" *ngIf="validate == true">
+                        <div class="information text-center">
+                            <br>
+                            <img src="../../../assets/img/book.svg" alt="" width="200" height="200">
+                            <h1>Aún no has comprado libros...</h1>
+                            <h5>Puedes ir comprar tus libros favoritos en la tienda virtual</h5>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-4 ms-2 g-3">
+                        <div class="col" *ngFor="let book of books;">
+                            <div class="card h-100">
+                                <img src="../../../assets/img/{{book.image}}.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{book.name}}</h5>
+                                    <p><strong>{{book.author}}</strong></p>
+                                    <p class="card-text">{{book.description}}</p>
+                                    <div class="d-grid gap-2">
+                                        <button (click)="readBook()" class="btn btn-dark">Leer Libro</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Año de publicación: {{book.year}}</small>
+                                <div class="card-footer">
+                                    <small class="text-muted">Año de publicación: {{book.year}}</small>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </main>
             <app-footer></app-footer>
         </div>

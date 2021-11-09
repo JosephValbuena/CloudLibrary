@@ -20,7 +20,8 @@ export class ProfileComponent implements OnInit {
     email:this.email,
     name: "",
     lastname: "",
-    passw: ""
+    passw: "",
+    description: "",
   }
 
   constructor(private router:Router, private actualRoute: ActivatedRoute, private service:GeneralService) {

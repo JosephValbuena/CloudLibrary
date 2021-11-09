@@ -6,4 +6,5 @@ export class Book{
     year: number | undefined;
     cost: number | undefined;
     image: string | undefined;
+    category: string | undefined;
 }

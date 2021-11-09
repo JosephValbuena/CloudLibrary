@@ -1,14 +1,15 @@
-.profile {
-    display: flex;
-    justify-content: center;
-}
-
-.imgProfile {
-    margin-left: 25px;
+.background {
+    background-image: url('../../../assets/img/bgPerfil2.jpg');
+    /* background-position: center; */
+    height: 200px;
 }
 
 .email {
-    margin-left: 40px;
+    font-size: 22px;
+}
+
+.description {
+    font-size: 20px;
 }
 
 .formEdit {

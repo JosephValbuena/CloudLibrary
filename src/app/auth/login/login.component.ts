@@ -11,9 +11,14 @@ import { AuthServiceService } from '../../services/auth-service.service';
 export class LoginComponent implements OnInit {
   
   credentials = {};
+  check = 0;
   constructor(private service: AuthServiceService, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("token")){
+      console.log("sirvo");
+      this.router.navigate(['/home']);
+    }
   }
 
   loginForm = new FormGroup({
@@ -26,13 +31,15 @@ export class LoginComponent implements OnInit {
     this.service.auth().subscribe(users =>{
       for (let i = 0; i < users.items.length; i++) {
         if(users.items[i].email == this.loginForm.value.email && users.items[i].passw == this.loginForm.value.password) {
-          
+  
           localStorage.setItem("idUser", JSON.stringify(users.items[i]));
+          localStorage.setItem("token",JSON.stringify(users.items[i].token));
           this.router.navigate(['/home']);
-          location.reload();
-        }else{
-          alert("Revisa tus credenciales")
         }
+      }
+
+      if(!localStorage.getItem("token")){
+        alert("Revisa tus credenciales o regístrate")
       }
     })
   }

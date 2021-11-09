@@ -23,6 +23,9 @@ export class BookComponent implements OnInit {
   month = this.date.getMonth() + 1
   year = this.date.getFullYear()
 
+  //Todos los libros
+  books: Book[] = [];
+
   sendP:Purchase = {
     id: undefined,
     idusuario: undefined,
@@ -31,6 +34,7 @@ export class BookComponent implements OnInit {
   }
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private service: GeneralService) {
+    this.books = [];
     this.book = new Book;
     this.user = localStorage.getItem("idUser");
     if(this.user){
@@ -40,6 +44,7 @@ export class BookComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.books = [];
     this.service.getPurchases().subscribe((data:any) => {
       this.purchases = data.items;
       for(let i = 0; i < this.purchases.length; i++){
@@ -56,8 +61,20 @@ export class BookComponent implements OnInit {
           this.book = book.items[0];
           this.sendP.idbook = this.book.id;
         });
+
+        this.service.getBooks().subscribe((books:any) =>{
+          for(let i=0; i<books.items.length; i++){
+            if(books.items[i].id != params.get("id") && books.items[i].category == this.book.category){
+              this.books.push(books.items[i]);
+            }
+          }
+
+          console.log(this.books)
+        });
       }
     });
+
+    
   }
 
   navigateBack(){
@@ -84,6 +101,11 @@ export class BookComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
+  }
+
+  verLibro(id: number | undefined){
+    this.router.navigate(["/book",id]);
+
   }
 
 }

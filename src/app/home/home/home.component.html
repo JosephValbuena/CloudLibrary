@@ -9,19 +9,19 @@
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item active">Todos los libros al mejor precio</li>
                     </ol>
-                </div>
 
-                <div class="row row-cols-1 row-cols-md-4 ms-2 g-3">
-                    <div class="col" *ngFor="let book of books;">
-                        <div class="card h-100">
-                            <img src="../../../assets/img/{{book.image}}.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <button class="btn btn-link btnCustome" (click)="verLibro(book.id)"><h5 class="card-title">{{book.name}}</h5></button>
-                                <p><strong>{{book.author}}</strong></p>
-                                <p class="card-text">{{book.description}}</p>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">Año de publicación: {{book.year}}</small>
+                    <div class="row row-cols-1 row-cols-md-4 ms-2 g-3">
+                        <div class="col" *ngFor="let book of books;">
+                            <div class="card h-100 ">
+                                <img src="../../../assets/img/{{book.image}}.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <button class="btn btn-link btnCustome" (click)="verLibro(book.id)"><h5 class="card-title">{{book.name}}</h5></button>
+                                    <p><strong>{{book.author}}</strong></p>
+                                    <p class="card-text">{{book.description}}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Año de publicación: {{book.year}}</small>
+                                </div>
                             </div>
                         </div>
                     </div>

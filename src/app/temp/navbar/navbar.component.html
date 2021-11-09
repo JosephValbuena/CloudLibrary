@@ -7,11 +7,15 @@
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <div class="input-group">
             <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            <button class="btn btn-secondary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
         </div>
     </form>
+
+    <button class="btn btn-dark me-2 btn-login" *ngIf="auth == false" (click)="login()">Ingresar</button>
+    <button class="btn btn-dark me-2 btn-register" *ngIf="auth == false" (click)="register()">Registrarse</button>
+
     <!-- Navbar-->
-    <button (click)="logout()" class="btn btn-primary">Salir <i class="fas fa-sign-out-alt"></i></button> br
+    <button (click)="logout()" class="btn btn-primary" *ngIf="auth == true">Salir <i class="fas fa-sign-out-alt"></i></button> br
 </nav>
 <script>
     window.addEventListener('DOMContentLoaded', event => {

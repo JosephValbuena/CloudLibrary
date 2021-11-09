@@ -7,13 +7,13 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                     Todos los libros
                 </a>
-                <div class="sb-sidenav-menu-heading">ESPACIO PERSONAL</div>
-                <a class="btn btn-link nav-link" (click)="goToProfile()">
+                <div class="sb-sidenav-menu-heading" *ngIf="auth == true">ESPACIO PERSONAL</div>
+                <a class="btn btn-link nav-link" (click)="goToProfile()" *ngIf="auth == true">
                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                     Mi perfil
                 </a>
 
-                <a class="btn btn-link nav-link" (click)="goToBooks()">
+                <a class="btn btn-link nav-link" (click)="goToBooks()" *ngIf="auth == true">
                     <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                     Mis Libros
                 </a>
@@ -26,7 +26,8 @@
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Usuario actual:</div>
+            <div class="small" *ngIf="auth == false">Usuario en modo visitante</div>
+            <div class="small" *ngIf="auth == true">Usuario actual:</div>
             {{name}}
         </div>
     </nav>
