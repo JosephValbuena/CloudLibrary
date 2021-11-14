@@ -1,5 +1,5 @@
 <body class="sb-nav-fixed">
-    <app-navbar></app-navbar>
+    <app-navbar (search)="handleSearch($event)"></app-navbar>
     <div id="layoutSidenav">
         <app-sidebar></app-sidebar>
         <div id="layoutSidenav_content">
@@ -11,7 +11,7 @@
                     </ol>
 
                     <div class="row row-cols-1 row-cols-md-4 ms-2 g-3">
-                        <div class="col" *ngFor="let book of books;">
+                        <div class="col" *ngFor="let book of books | search:filtro_valor">
                             <div class="card h-100 ">
                                 <img src="../../../assets/img/{{book.image}}.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import {Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Injectable({providedIn: 'root'})
 export class AuthGuard implements CanActivate{
@@ -13,7 +14,12 @@ export class AuthGuard implements CanActivate{
             return true;
         }
 
-        console.log("Debes iniciar sesión para continuar");
+        Swal.fire({
+            position: 'top',
+            icon: 'error',
+            title: 'Debes iniciar sesión para continuar',
+            timer: 1500
+          })
 
         this.router.navigate(['/home']);
         

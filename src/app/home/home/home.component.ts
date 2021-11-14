@@ -11,6 +11,7 @@ import { GeneralService } from 'src/app/services/general.service';
 export class HomeComponent implements OnInit {
   
   books: Book[] = [];
+  filtro_valor= "";
 
   constructor(private service: GeneralService, private router: Router) { }
 
@@ -23,6 +24,11 @@ export class HomeComponent implements OnInit {
 
   verLibro(id: number | undefined){
     this.router.navigate(["/book",id]);
+  }
+
+  handleSearch(value: string){
+    this.filtro_valor = value;
+    console.log(this.filtro_valor);
   }
 
 }

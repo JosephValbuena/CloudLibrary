@@ -19,6 +19,7 @@ import { BookComponent } from './books/book/book.component';
 import { MybooksComponent } from './profile/mybooks/mybooks.component';
 import {HttpConfigInterceptor} from './interceptor/httpconfig.interceptor'
 import { CookieService } from 'ngx-cookie-service';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { CookieService } from 'ngx-cookie-service';
     NavbarComponent,
     RegisterComponent,
     BookComponent,
-    MybooksComponent
+    MybooksComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
